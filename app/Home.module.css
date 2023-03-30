@@ -9,17 +9,17 @@
 .sidebar {
   position: fixed;
   top: 0;
-  left: 0;
+  left: -400px;
   height: 100vh;
   width: 400px;
   background-color: rgb(200, 200, 200);
   padding: 5px 36px;
-  transform: translateX(-400px);
+  /* transform: translateX(-400px); */
   transition: 0.3s;
 }
 
 .sidebarOpen {
-  transform: translateX(0px);
+  transform: translateX(400px);
 }
 
 .topbarLogo,

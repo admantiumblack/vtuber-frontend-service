@@ -1,7 +1,13 @@
+import styles from "./Components.module.css";
 import Image from "next/image";
 
-export default function TalentSmall({ key, name, thumbnail }) {
+export default function TalentSmall({ name, thumbnail }) {
   return (
-    <>{/* <Image src={children.thumbnail} width="50px" height="50px" /> */}</>
+    <>
+      <li className={styles.button}>
+        <Image src={thumbnail} width="50" height="50" />
+        <span>{name}</span>
+      </li>
+    </>
   );
 }

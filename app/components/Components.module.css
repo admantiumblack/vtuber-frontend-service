@@ -1,0 +1,8 @@
+.talentList {
+  list-style-type: none;
+}
+
+.button {
+  background-color: rgb(var(--background-rgb));
+  /* height: 40px; */
+}
