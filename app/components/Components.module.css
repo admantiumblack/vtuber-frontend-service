@@ -50,6 +50,10 @@
 
 .button {
   margin: 5px;
+  padding: 5px;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
 }
 
 /* =============== SIDEBAR =============== */
