@@ -49,3 +49,21 @@ a {
     color-scheme: dark;
   }
 }
+
+.main {
+  width: 80vw;
+  justify-content: center;
+  align-items: center;
+}
+
+.main .content:first-child {
+  margin-top: 80px;
+}
+
+.main .content {
+  margin-top: 50px;
+}
+
+.main .content:last-child {
+  margin-bottom: 150px;
+}

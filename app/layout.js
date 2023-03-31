@@ -17,10 +17,19 @@ const fetcher = async () => {
   return data;
 };
 
+const fetchCompany = async () => {
+  const res = await fetch("http://localhost:8002/user/company");
+  const data = await res.json();
+  console.log(data);
+  return data;
+};
+
 export default function RootLayout({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  const { data: talents, error } = useSWR("talents", fetcher);
+  const { data: talents, error:talentError } = useSWR("talents", fetcher);
+
+  const { data: companies, error:companyError } = useSWR("companies", fetchCompany);
 
   function openNav() {
     setSidebarOpen(true);
@@ -46,6 +55,7 @@ export default function RootLayout({ children }) {
           <div className={styles.sidebarLogo} onClick={closeNav}>
             <Image src={logo} width="185" height="70" alt={"Logo"} />
           </div>
+          <TalentListSmall companies={companies} />
           <TalentListSmall talents={talents} />
         </div>
         {children}
