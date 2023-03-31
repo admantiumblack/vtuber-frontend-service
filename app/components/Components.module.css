@@ -1,34 +1,114 @@
 .button {
-  background-color: rgb(var(--background-rgb));
+  display: flex;
+  /* background-color: rgb(var(--background-rgb)); */
   box-shadow: 0 0;
   overflow: hidden;
 
-  transition: 0.2s;
+  border-style: solid;
+  border-color: rgb(var(--foreground-alt-rgb));
+  border-width: 1px;
+
+  transition: 0.15s;
 }
 
 .button:hover {
-  /* background-color: rgb(var(--foreground-rgb)); */
-  /* color: rgb(var(--background-rgb)); */
   transform: translate(-5px, -5px);
-  box-shadow: 7.5px 7.5px rgb(var(--hover-shadow-rgb));
+  border-color: rgb(var(--hover-shadow-rgb));
+  background-color: rgb(var(--hover-background-rgb));
+  color: rgb(var(--background-rgb));
+  box-shadow: 0 0 0 2px rgb(var(--hover-shadow-rgb)),
+    5px 5px rgb(var(--hover-shadow-rgb));
 
-  transition: 0.2s;
+  transition: 0.15s;
 }
 
-.talentList {
+.button img {
+  pointer-events: none;
+}
+
+.companyListContainer {
   list-style-type: none;
   display: flex;
   flex-direction: column;
 }
 
-.talentButtonSidebar {
-  margin: 5px 0px;
+.companyList:not(:first-child) {
+  margin-top: 20px;
+}
+
+.companyName {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: xx-large;
+}
+
+.talentList {
+  list-style-type: none;
   display: flex;
+  flex-direction: row;
+}
+
+.button {
+  margin: 5px;
+}
+
+/* =============== SIDEBAR =============== */
+
+.sidebarList.companyListContainer {
+  height: 100%;
+  padding: 15px 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.sidebarList .companyName {
+  font-size: larger;
+}
+
+.sidebarList .talentList {
+  flex-direction: column;
+  overflow-x: visible;
+}
+
+.sidebarList .button {
+  margin: 5px 10px;
   align-items: center;
   border-radius: 10px;
   flex-basis: 2px;
 }
 
-.talentButtonSidebar *:not(:first-child) {
-  margin: 0 10px 0 0;
+.sidebarList .button:hover {
+  box-shadow: 0 0 0 1px rgb(var(--hover-shadow-rgb)),
+    5px 5px rgb(var(--hover-shadow-rgb));
+}
+
+.sidebarList .button p {
+  margin-left: 10px;
+}
+
+.sidebarList a:first-child .button {
+  margin-top: 20px;
+}
+
+.sidebarList .button img {
+  height: 55px;
+  width: 55px;
+}
+
+/* =============== HOME ===============  */
+
+.landing .talentList {
+  margin-top: 10px;
+}
+
+.landing .button {
+  flex-direction: column;
+  height: 225px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.landing .button p {
+  margin: auto;
+  font-weight: bolder;
 }

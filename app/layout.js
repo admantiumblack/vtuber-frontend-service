@@ -1,35 +1,16 @@
 "use client";
 
 import "./globals.css";
-import styles from "./Home.module.css";
+import styles from "./Layout.module.css";
 
 import Image from "next/image";
 import { useState } from "react";
-import useSWR from "swr";
 
 import logo from "@/public/logo.png";
-import TalentListSmall from "./components/TalentListSmall";
-
-const fetcher = async () => {
-  const res = await fetch("http://localhost:8002/user/list");
-  const data = await res.json();
-  console.log(data);
-  return data;
-};
-
-const fetchCompany = async () => {
-  const res = await fetch("http://localhost:8002/user/company");
-  const data = await res.json();
-  console.log(data);
-  return data;
-};
+import CompanyList from "./components/CompanyList";
 
 export default function RootLayout({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-
-  const { data: talents, error:talentError } = useSWR("talents", fetcher);
-
-  const { data: companies, error:companyError } = useSWR("companies", fetchCompany);
 
   function openNav() {
     setSidebarOpen(true);
@@ -52,13 +33,18 @@ export default function RootLayout({ children }) {
             styles.sidebar + " " + (sidebarOpen ? styles.sidebarOpen : "")
           }
         >
-          <div className={styles.sidebarLogo} onClick={closeNav}>
-            <Image src={logo} width="185" height="70" alt={"Logo"} />
+          <div className={styles.sidebarLogo}>
+            <Image
+              src={logo}
+              width="185"
+              height="70"
+              alt={"Logo"}
+              onClick={closeNav}
+            />
           </div>
-          <TalentListSmall companies={companies} />
-          <TalentListSmall talents={talents} />
+          <CompanyList styleContext={"sidebarList"} />
         </div>
-        {children}
+        <div className={"main"}>{children}</div>
       </body>
     </html>
   );

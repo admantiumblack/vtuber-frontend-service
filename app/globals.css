@@ -3,20 +3,20 @@
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
-  --foreground-rgb: 0, 0, 0;
-  --background-rgb: 255, 255, 255;
+  --foreground-rgb: 255, 255, 252;
+  --background-rgb: 7, 17, 8;
+  --accent-1-rgb: 122, 40, 203;
+  --accent-2-rgb: 229, 212, 237;
+
+  --foreground-alt-rgb: 232, 238, 242;
+  --background-alt-rgb: 48, 54, 51;
 
   --hover-rgb: 255, 100, 100;
   --active-rgb: 255, 150, 150;
-  --hover-shadow-rgb: 148, 30, 232;
-  --hover-border-rgb: 227, 245, 66;
-}
+  --hover-shadow-rgb: var(--accent-1-rgb);
+  --hover-background-rgb: var(--accent-2-rgb);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-rgb: 0, 0, 0;
-  }
+  --border-rgb: 230, 230, 230;
 }
 
 * {
@@ -44,16 +44,9 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
-
 .main {
-  width: 80vw;
-  justify-content: center;
-  align-items: center;
+  margin: auto;
+  width: clamp(500px, 80vh, 1440px);
 }
 
 .main .content:first-child {
@@ -66,4 +59,20 @@ a {
 
 .main .content:last-child {
   margin-bottom: 150px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
