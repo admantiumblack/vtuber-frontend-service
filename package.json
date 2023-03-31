@@ -12,6 +12,7 @@
     "next": "13.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-responsive-carousel": "^3.2.23",
     "react-spotify-embed": "^2.0.3",
     "react-svg": "^16.1.7",
     "react-youtube": "^10.1.0",
