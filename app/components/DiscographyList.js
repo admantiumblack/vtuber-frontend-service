@@ -1,11 +1,17 @@
 import styles from "./Components.module.css";
 
 import useSWR from "swr";
+import { Spotify } from "react-spotify-embed";
 
 import AlbumList from "./AlbumList";
 import Loading from "./loading";
+import { useEffect, useState } from "react";
+import { Router } from "next/router";
 
 export default function DiscographyList({ vtuberId }) {
+  const [albumLink, setAlbumLink] = useState("");
+  const [albumsReady, setAlbumsReady] = useState(false);
+
   const fetchAlbums = async () => {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_DISCOGRAPHY_API}/api/vtubers-albums/${vtuberId}?limit=6&offset=0&include_groups=album,single,compilation,appears_on`
@@ -14,18 +20,34 @@ export default function DiscographyList({ vtuberId }) {
     // console.log(data)
     return data;
   };
+  const { data: albums, error: albumError } = useSWR("albums", fetchAlbums, {
+    onSuccess: (data) => {
+      setAlbumsReady(true);
+      setAlbumLink(data.data.items[0].external_urls.spotify);
+    },
+  });
 
-  const { data: albums, error: albumError } = useSWR("albums", fetchAlbums);
+  useEffect(() => {
+    Router.events.on("routeChangeStart", (url, { shallow }) => {
+      setAlbumsReady(false);
+      setAlbumLink("");
+    });
+  });
+
   return (
     <>
       <div className={styles.discographyContainer}>
-        {albums ? (
+        {albumsReady && albums ? (
           albums == "Albums data are still empty." ? (
-            "Album data is empty"
+            <p>Album data is empty</p>
           ) : albums.data ? (
             <>
-              <AlbumList albums={albums} />
-              <div>Embed goes here</div>
+              <AlbumList albums={albums.data} setAlbumLink={setAlbumLink} />
+              {albumLink ? (
+                <Spotify link={albumLink} width={"100%"} height={"100%"} />
+              ) : (
+                <Loading />
+              )}
             </>
           ) : (
             <Loading />

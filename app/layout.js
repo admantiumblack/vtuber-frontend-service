@@ -42,7 +42,7 @@ export default function RootLayout({ children }) {
               onClick={closeNav}
             />
           </div>
-          <CompanyList styleContext={"sidebarList"} />
+          <CompanyList styleContext={"sidebarList"} onClick={closeNav} />
         </div>
         <div className={"main"}>{children}</div>
       </body>
