@@ -50,8 +50,7 @@
 
 .button {
   margin: 5px;
-  padding: 5px;
-  justify-content: center;
+  /* justify-content: center; */
   text-align: center;
   align-items: center;
 }
@@ -115,4 +114,21 @@
 .landing .button p {
   margin: auto;
   font-weight: bolder;
+}
+
+/* =============== ALBUM =============== */
+
+.discographyAlbumList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.albumButtonContainer {
+  display: flex;
+  flex-direction: column;
+  height: 225px;
+}
+
+.discographyAlbumList .button {
+  border-style: none;
 }

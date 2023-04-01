@@ -1,16 +1,14 @@
 "use client";
 
-import YouTubeStreamPlayer from "./components/YouTubeStreamPlayer";
-
+import YouTubeVideoPicker from "./components/YouTubeVideoPicker";
 import CompanyList from "./components/CompanyList";
-import YouTubeIframe from "./components/YouTubeIframe";
 
 export default function Page() {
   return (
     <>
       <div className={"content"}>
         <h1>Current streams</h1>
-        <YouTubeStreamPlayer />
+        <YouTubeVideoPicker />
       </div>
       <div className={"content"}>
         <CompanyList styleContext={"landing"} />
