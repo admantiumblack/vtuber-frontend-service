@@ -22,12 +22,6 @@ export default function CompanyTalentList({ company }) {
     <>
       <div>
         <TalentList talents={talents} />
-        {/* <TalentList talents={talents} />
-        <TalentList talents={talents} />
-        <TalentList talents={talents} />
-        <TalentList talents={talents} />
-        <TalentList talents={talents} />
-        <TalentList talents={talents} /> */}
       </div>
     </>
   );

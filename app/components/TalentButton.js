@@ -5,12 +5,12 @@ import Link from "next/link";
 export default function TalentButton({ id, name, thumbnail }) {
   return (
     <>
-      <Link href={`/talent/${id}`}>
+      <a href={`/talent/${id}`}>
         <li className={styles.button}>
           <Image src={thumbnail} width="150" height="150" alt={name} />
           <p>{name}</p>
         </li>
-      </Link>
+      </a>
     </>
   );
 }

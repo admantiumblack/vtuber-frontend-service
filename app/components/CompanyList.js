@@ -6,7 +6,7 @@ import CompanyTalentList from "./CompanyTalentList";
 import Loading from "./loading";
 
 const fetchCompanies = async () => {
-  console.log(`${process.env.NEXT_PUBLIC_USER_API}/user/company?limit=0`);
+  // console.log(`${process.env.NEXT_PUBLIC_USER_API}/user/company?limit=0`);
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_USER_API}/user/company?limit=0`
   );

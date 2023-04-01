@@ -8,19 +8,13 @@ export default function CarouselArtworks({ id }) {
   const fetchArtworks = async () => {
     console.log("halo");
 
-    try {
-      const res = await fetch(`${process.env.ART_API}/art?id=${id}&limit=5`);
-    } catch (error) {
-      console.log(error);
-    }
-
-    console.log(res);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_ART_API}/art?id=${id}&limit=10`)
 
     const data = await res.json();
 
-    console.log(data);
+    // console.log(data);
 
-    return data;
+    return data.data;
   };
 
   const { data: artworks, error: artworkError } = useSWR(
@@ -28,19 +22,20 @@ export default function CarouselArtworks({ id }) {
     fetchArtworks
   );
 
+  console.log(artworks)
+
   return (
     <div>
       <Carousel>
-        <div>
           {artworks ? (
-            albums.post.map((item) => (
-              <img src={item.file - url} alt={item.tag - string - artist} />
-              // <p>{item.source}</p>
+            artworks.post.map((item) => (
+                <div>
+                    <img src={item["file-url"][0]} alt={item["tag-string-artist"][0]} />
+                </div>
             ))
           ) : (
             <Loading />
           )}
-        </div>
       </Carousel>
     </div>
   );

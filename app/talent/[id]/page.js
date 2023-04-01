@@ -14,9 +14,9 @@ export default function Page({ params }) {
       <div className={"content"}>
         <h1>{"Recent Artwork"}</h1>
       </div>
-      {/* <div className={"content"}>
+      <div className={"content"}>
         <CarouselArtworks id={params.id} />
-      </div> */}
+      </div>
     </>
   );
 }
