@@ -7,12 +7,12 @@
   --background-rgb: 7, 17, 8;
   --accent-1-rgb: 122, 40, 203;
   --accent-2-rgb: 229, 212, 237;
+  --subtitle-rgb: 175, 175, 175;
 
   --foreground-alt-rgb: 232, 238, 242;
   --background-alt-rgb: 48, 54, 51;
 
-  --hover-rgb: 255, 100, 100;
-  --active-rgb: 255, 150, 150;
+  --active-rgb: 162, 123, 181;
   --hover-shadow-rgb: var(--accent-1-rgb);
   --hover-background-rgb: var(--accent-2-rgb);
 

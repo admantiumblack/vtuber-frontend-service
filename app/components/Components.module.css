@@ -7,23 +7,34 @@
   border-style: solid;
   border-color: rgb(var(--foreground-alt-rgb));
   border-width: 1px;
+  cursor: pointer;
 
   transition: 0.15s;
 }
 
 .button:hover {
+  --origin-shadow: 5px 5px rgb(var(--hover-shadow-rgb));
+  --glow-shadow: 0 0 0 2px rgb(var(--hover-shadow-rgb));
+
   transform: translate(-5px, -5px);
   border-color: rgb(var(--hover-shadow-rgb));
   background-color: rgb(var(--hover-background-rgb));
   color: rgb(var(--background-rgb));
-  box-shadow: 0 0 0 2px rgb(var(--hover-shadow-rgb)),
-    5px 5px rgb(var(--hover-shadow-rgb));
+  box-shadow: var(--origin-shadow), var(--glow-shadow);
 
   transition: 0.15s;
 }
 
+.button:active {
+  background-color: rgb(var(--active-rgb));
+  transform: translate(-3px, -3px);
+
+  transition: 0.075s;
+}
+
 .button img {
   pointer-events: none;
+  user-select: none;
 }
 
 .companyListContainer {
@@ -81,8 +92,7 @@
 }
 
 .sidebarList .button:hover {
-  box-shadow: 0 0 0 1px rgb(var(--hover-shadow-rgb)),
-    5px 5px rgb(var(--hover-shadow-rgb));
+  box-shadow: 0 0 0 1px rgb(var(--hover-shadow-rgb)), var(--origin-shadow);
 }
 
 .sidebarList .button p {
@@ -116,7 +126,12 @@
   font-weight: bolder;
 }
 
-/* =============== ALBUM =============== */
+/* =============== DISCOGRAPHY =============== */
+
+.discographyContainer {
+  display: grid;
+  grid-template-columns: auto auto;
+}
 
 .discographyAlbumList {
   display: flex;
@@ -127,8 +142,28 @@
   display: flex;
   flex-direction: column;
   height: 225px;
+  width: min-content;
+  text-overflow: ellipsis;
+}
+
+.albumButtonContainer p {
+  text-align: center;
+  margin: 2px 5px;
+}
+
+.albumButtonContainer p:first-of-type {
+  font-weight: bold;
+}
+
+.albumButtonContainer p:last-of-type {
+  font-size: small;
+  color: rgb(var(--subtitle-rgb));
 }
 
 .discographyAlbumList .button {
   border-style: none;
+}
+
+.discographyAlbumList .button:hover {
+  box-shadow: var(--origin-shadow);
 }

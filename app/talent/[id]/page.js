@@ -2,21 +2,21 @@
 
 import styles from "./Talent.module.css";
 import CarouselArtworks from "../../components/Carousel";
-import Loading from "../../components/loading";
 import DiscographyList from "@/app/components/DiscographyList";
 
 export default function Page({ params }) {
   return (
     <>
-      <div className={styles.title}>
-        <b>{"Albums"}</b>
+      <div className={"content"}>
+        <h1>{"Albums"}</h1>
+        <DiscographyList vtuberId={params.id} />
       </div>
-      <DiscographyList vtuberId={params.id} />
-      <br />
-      <div className={styles.title}>
-        <b>{"Recent Artwork"}</b>
+      <div className={"content"}>
+        <h1>{"Recent Artwork"}</h1>
       </div>
-      <CarouselArtworks id={params.id} />
+      {/* <div className={"content"}>
+        <CarouselArtworks id={params.id} />
+      </div> */}
     </>
   );
 }

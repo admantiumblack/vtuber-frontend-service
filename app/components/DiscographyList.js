@@ -1,10 +1,14 @@
+import styles from "./Components.module.css";
+
 import useSWR from "swr";
+
 import AlbumList from "./AlbumList";
+import Loading from "./loading";
 
 export default function DiscographyList({ vtuberId }) {
   const fetchAlbums = async () => {
     const res = await fetch(
-      `http://localhost:8001/api/vtubers-albums/${vtuberId}?limit=5&offset=0&include_groups=album,single,compilation,appears_on`
+      `http://localhost:8001/api/vtubers-albums/${vtuberId}?limit=6&offset=0&include_groups=album,single,compilation,appears_on`
     );
     const data = await res.json();
     // console.log(data)
@@ -14,8 +18,21 @@ export default function DiscographyList({ vtuberId }) {
   const { data: albums, error: albumError } = useSWR("albums", fetchAlbums);
   return (
     <>
-      <div>
-        <AlbumList albums={albums} />
+      <div className={styles.discographyContainer}>
+        {albums ? (
+          albums == "Albums data are still empty." ? (
+            "Album data is empty"
+          ) : albums.data ? (
+            <>
+              <AlbumList albums={albums} />
+              <div>Embed goes here</div>
+            </>
+          ) : (
+            <Loading />
+          )
+        ) : (
+          <Loading />
+        )}
       </div>
     </>
   );
