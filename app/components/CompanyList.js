@@ -6,7 +6,7 @@ import CompanyTalentList from "./CompanyTalentList";
 import Loading from "./loading";
 
 const fetchCompanies = async () => {
-  const res = await fetch("http://localhost:8002/user/company?limit=0");
+  const res = await fetch(`${process.env.USER_API}/user/company?limit=0`);
   const data = await res.json();
   // console.log(data);
   return data;

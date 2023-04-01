@@ -7,8 +7,7 @@ import TalentList from "./TalentList";
 export default function CompanyTalentList({ company }) {
   const fetchTalents = async () => {
     const res = await fetch(
-      `http://localhost:8002/user/list?company=${company}&limit=0`
-      // `http://localhost:8002/user/list`
+      `${process.env.USER_API}/user/list?company=${company}&limit=0`
     );
     const data = await res.json();
     // console.log(data);

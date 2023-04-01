@@ -8,7 +8,7 @@ import Loading from "./loading";
 export default function DiscographyList({ vtuberId }) {
   const fetchAlbums = async () => {
     const res = await fetch(
-      `http://localhost:8001/api/vtubers-albums/${vtuberId}?limit=6&offset=0&include_groups=album,single,compilation,appears_on`
+      `${process.env.DISCOGRAPHY_API}/api/vtubers-albums/${vtuberId}?limit=6&offset=0&include_groups=album,single,compilation,appears_on`
     );
     const data = await res.json();
     // console.log(data)
