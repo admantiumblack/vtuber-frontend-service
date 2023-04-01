@@ -1,5 +1,6 @@
 .topbar {
-  height: 80px;
+  position: fixed;
+  height: var(--topbar-height);
   width: 100vw;
   background-color: rgb(var(--accent-1-rgb));
   display: flex;
