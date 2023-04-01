@@ -48,7 +48,7 @@ a {
 
 .main {
   margin: auto;
-  width: clamp(804.5px, 60vw, 1440px);
+  width: clamp(960px, 60vw, 2400px);
 }
 
 .main .content:first-child {

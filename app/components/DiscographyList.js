@@ -22,8 +22,8 @@ export default function DiscographyList({ vtuberId }) {
   };
   const { data: albums, error: albumError } = useSWR("albums", fetchAlbums, {
     onSuccess: (data) => {
-      console.log(`Discography data: ${data}`);
       setAlbumsReady(true);
+      // console.log(data.data.items[0].external_urls.spotify);
       setAlbumLink(data.data.items[0].external_urls.spotify);
     },
   });

@@ -13,7 +13,7 @@ export default function Page({ params }) {
         <TalentHeader vtuberId={params.id} />
       </div>
       <div className={"content"}>
-        {/* <VideoList listAll={false} vtuberId={params.id} /> */}
+        <VideoList listAll={false} vtuberId={params.id} />
       </div>
       <div className={"content"}>
         <h1>{"Albums"}</h1>
@@ -23,7 +23,7 @@ export default function Page({ params }) {
         <h1>{"Recent Artwork"}</h1>
       </div>
       <div className={"content"}>
-        <CarouselArtworks id={params.id} />
+        {/* <CarouselArtworks id={params.id} /> */}
       </div>
     </>
   );
