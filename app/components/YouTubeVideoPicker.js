@@ -13,7 +13,7 @@ export default function YouTubeVideoPicker({ videos, livestreamsOnly }) {
   return (
     <>
       <div className={styles.videoComponentParent}>
-        <div classname={styles.videoPlayer}>
+        <div className={styles.videoPlayer}>
           {currentVideo ? (
             <YouTubePlayer videoId={currentVideo.id} />
           ) : (
@@ -28,25 +28,55 @@ export default function YouTubeVideoPicker({ videos, livestreamsOnly }) {
                   <div className={styles.livestreamDescriptionLayout}>
                     <Link
                       href={`https://youtube.com/channel/${currentVideo.channel.id}`}
+                      className={styles.button}
                     >
                       <Image
-                        className={styles.button}
                         src={currentVideo.channel.photo}
                         height={"65"}
                         width={"65"}
                         alt={currentVideo.channel.english_name}
                       />
                     </Link>
-                    <h2>{currentVideo.channel.english_name}</h2>
+                    <h2>
+                      <Link
+                        href={`https://youtube.com/channel/${currentVideo.channel.id}`}
+                        className={styles.textLink}
+                      >
+                        {currentVideo.channel.english_name}
+                      </Link>
+                    </h2>
                     <h4>{currentVideo.channel.org}</h4>
-                    <h1>{currentVideo.title}</h1>
+                    <h1>
+                      <Link
+                        href={`https://youtube.com/watch?v=${currentVideo.id}`}
+                        className={styles.textLink}
+                      >
+                        {currentVideo.title}
+                      </Link>
+                    </h1>
                   </div>
                 </>
               ) : (
                 <>
                   <div className={styles.videoDescriptionLayout}>
-                    <h1>{currentVideo.snippet.localized.title}</h1>
-                    <p>{currentVideo.snippet.localized.description}</p>
+                    <h1>
+                      <Link
+                        href={`https://youtube.com/channel/${currentVideo.id}`}
+                        className={styles.textLink}
+                      >
+                        {currentVideo.snippet.localized.title}
+                      </Link>
+                    </h1>
+                    <h5>
+                      {"from " +
+                        (currentVideo.liveStreamingDetails
+                          ? currentVideo.liveStreamingDetails.scheduledStartTime
+                          : currentVideo.snippet.publishedAt
+                        ).split("T")[0]}
+                    </h5>
+                    <div className={styles.descriptionContent}>
+                      <p>{currentVideo.snippet.localized.description}</p>
+                    </div>
                   </div>
                 </>
               )}
@@ -58,7 +88,15 @@ export default function YouTubeVideoPicker({ videos, livestreamsOnly }) {
         <div className={styles.videoPicker}>
           {videos.map((video) => (
             <div
-              className={styles.button}
+              key={video.id}
+              className={[
+                styles.button,
+                currentVideo.id
+                  ? currentVideo.id == video.id
+                    ? styles.selected
+                    : null
+                  : null,
+              ].join(" ")}
               onClick={() => setCurrentVideo(video)}
             >
               {(livestreamsOnly
@@ -77,7 +115,7 @@ export default function YouTubeVideoPicker({ videos, livestreamsOnly }) {
                 <></>
               )}
               <Image
-                key={video.id}
+                alt={video.title}
                 src={`https://img.youtube.com/vi/${video.id}/default.jpg`}
                 width={"120"}
                 height={"90"}

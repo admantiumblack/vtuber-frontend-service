@@ -4,13 +4,43 @@ import YouTubeVideoPicker from "./YouTubeVideoPicker";
 import Loading from "./loading";
 import { useState } from "react";
 
-function pruneLiveVideos(videosRaw) {
-  const videos = videosRaw.data
+function prepareLiveVideos(videosRaw) {
+  // const videos = videosRaw.data
+  //   .sort(
+  //     (a, b) => Date.parse(a.start_scheduled) - Date.parse(b.start_scheduled)
+  //   )
+  //   .slice(0, 5);
+  //   return videos;
+
+  return videosRaw.data
     .sort(
       (a, b) => Date.parse(a.start_scheduled) - Date.parse(b.start_scheduled)
     )
     .slice(0, 5);
-  return videos;
+}
+
+function prepareVideos(videosRaw) {
+  // const videos = videosRaw.data.sort(
+  //   (a, b) =>
+  //     Date.parse(a.liveStreamingDetails.scheduledStartTime) -
+  //     Date.parse(b.liveStreamingDetails.scheduledStartTime)
+  // );
+  // return videos;
+
+  return videosRaw.items.sort(
+    (a, b) =>
+      // Reversed b and a unlike prepareLiveVideos
+      Date.parse(
+        b.liveStreamingDetails
+          ? b.liveStreamingDetails.scheduledStartTime
+          : b.snippet.publishedAt
+      ) -
+      Date.parse(
+        a.liveStreamingDetails
+          ? a.liveStreamingDetails.scheduledStartTime
+          : a.snippet.publishedAt
+      )
+  );
 }
 
 export default function VideoList({ listAll, vtuberId }) {
@@ -19,7 +49,9 @@ export default function VideoList({ listAll, vtuberId }) {
 
   const fetchAllVideos = async () => {
     console.log("Fetching all videos");
-    const res = await fetch(`http://localhost:8000/schedule/live`);
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_VIDEO_API}/schedule/live`
+    );
     const data = await res.json();
     // console.log(data);
     return data;
@@ -28,7 +60,7 @@ export default function VideoList({ listAll, vtuberId }) {
   const fetchVideos = async () => {
     console.log("Fetching talent specific videos");
     const res = await fetch(
-      `http://localhost:8000/video/list?channel_id=${vtuberId}&limit=5`
+      `${process.env.NEXT_PUBLIC_VIDEO_API}/video/list?channel_id=${vtuberId}&limit=5`
     );
     const data = await res.json();
     // console.log(data);
@@ -41,9 +73,10 @@ export default function VideoList({ listAll, vtuberId }) {
     // fetchAllVideos,
     {
       onSuccess: (data) => {
-        listAll ? setVideos(pruneLiveVideos(data)) : setVideos(data.items);
+        listAll
+          ? setVideos(prepareLiveVideos(data))
+          : setVideos(prepareVideos(data));
         setVideosReady(true);
-        // setAlbumLink(data.data.items[0].external_urls.spotify);
       },
     }
   );
