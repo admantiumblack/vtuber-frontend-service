@@ -6,9 +6,9 @@ import useSWR from "swr";
 
 export default function CarouselArtworks({ id }) {
   const fetchArtworks = async () => {
-    console.log("halo");
-
-    const res = await fetch(`${process.env.NEXT_PUBLIC_ART_API}/art?id=${id}&limit=10`)
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_ART_API}/art?id=${id}&limit=10`
+    );
 
     const data = await res.json();
 
@@ -22,20 +22,23 @@ export default function CarouselArtworks({ id }) {
     fetchArtworks
   );
 
-  console.log(artworks)
+  // console.log(artworks);
 
   return (
     <div>
       <Carousel>
-          {artworks ? (
-            artworks.post.map((item) => (
-                <div>
-                    <img src={item["file-url"][0]} alt={item["tag-string-artist"][0]} />
-                </div>
-            ))
-          ) : (
-            <Loading />
-          )}
+        {artworks ? (
+          artworks.post.map((item) => (
+            <div>
+              <img
+                src={item["file-url"][0]}
+                alt={item["tag-string-artist"][0]}
+              />
+            </div>
+          ))
+        ) : (
+          <Loading />
+        )}
       </Carousel>
     </div>
   );
