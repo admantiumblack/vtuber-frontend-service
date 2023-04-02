@@ -32,7 +32,36 @@
   transform: translateX(var(--sidebar-width));
 }
 
-.topbarLogo img,
-.sidebarLogo img {
+.menuBar {
+  display: flex;
+  align-items: center;
+}
+
+.sidebar .menuBar {
+  justify-content: space-between;
+}
+
+.menuBar a {
+  line-height: 0;
+}
+
+.menuBar img {
   cursor: pointer;
+  user-select: none;
+}
+
+.menuIcon {
+  line-height: 0;
+  margin: 10px;
+  padding: 5px;
+  border-radius: 30px;
+
+  transition: 0.075s;
+}
+
+.menuIcon:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+.menuIcon:active {
+  background-color: rgba(255, 255, 255, 0.4);
 }
