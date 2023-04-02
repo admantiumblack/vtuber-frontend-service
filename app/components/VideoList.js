@@ -70,7 +70,6 @@ export default function VideoList({ listAll, vtuberId }) {
   const { data: videosRaw, error: videosError } = useSWR(
     "videos",
     listAll ? fetchAllVideos : fetchVideos,
-    // fetchAllVideos,
     {
       onSuccess: (data) => {
         listAll

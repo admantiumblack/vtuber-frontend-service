@@ -9,7 +9,7 @@ import Link from "next/link";
 export default function YouTubeVideoPicker({ videos, livestreamsOnly }) {
   const [currentVideo, setCurrentVideo] = useState(videos[0]);
 
-  console.log(videos);
+  // console.log(videos);
   return (
     <>
       <div className={styles.videoComponentParent}>
@@ -28,6 +28,7 @@ export default function YouTubeVideoPicker({ videos, livestreamsOnly }) {
                   <div className={styles.livestreamDescriptionLayout}>
                     <Link
                       href={`https://youtube.com/channel/${currentVideo.channel.id}`}
+                      target="_blank"
                       className={styles.button}
                     >
                       <Image
@@ -40,6 +41,7 @@ export default function YouTubeVideoPicker({ videos, livestreamsOnly }) {
                     <h2>
                       <Link
                         href={`https://youtube.com/channel/${currentVideo.channel.id}`}
+                        target="_blank"
                         className={styles.textLink}
                       >
                         {currentVideo.channel.english_name}
@@ -49,6 +51,7 @@ export default function YouTubeVideoPicker({ videos, livestreamsOnly }) {
                     <h1>
                       <Link
                         href={`https://youtube.com/watch?v=${currentVideo.id}`}
+                        target="_blank"
                         className={styles.textLink}
                       >
                         {currentVideo.title}
