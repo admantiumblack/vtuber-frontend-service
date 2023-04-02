@@ -389,8 +389,8 @@
   display: grid;
   height: fit-content;
   width: fit-content;
-  grid-template-rows: auto auto;
-  grid-template-columns: auto auto;
+  grid-template-rows: min-content auto;
+  grid-template-columns: min-content auto;
 }
 
 .headerTextContainer h1 {
@@ -400,10 +400,12 @@
 
 .headerTextContainer h4 {
   font-weight: normal;
+  white-space: nowrap;
   margin: auto 0;
 }
 
 .companyPill {
+  margin-left: 5px;
   width: fit-content;
   height: fit-content;
   padding: 4px 10px;
