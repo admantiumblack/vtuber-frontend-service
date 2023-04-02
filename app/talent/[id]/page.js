@@ -23,7 +23,7 @@ export default function Page({ params }) {
         <h1>{"Recent Artwork"}</h1>
       </div>
       <div className={"content"}>
-        {/* <CarouselArtworks id={params.id} /> */}
+        <CarouselArtworks id={params.id} />
       </div>
     </>
   );
