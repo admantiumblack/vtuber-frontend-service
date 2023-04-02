@@ -276,10 +276,10 @@
   height: 100%;
   display: grid;
   grid-template-columns: 65px auto;
-  grid-template-rows: 35.2px 35.2px auto;
+  grid-template-rows: min-content min-content auto;
 }
 
-.livestreamDescriptionLayout .button {
+.livestreamDescriptionLayout a:first-of-type {
   grid-row-start: 1;
   grid-row-end: 3;
 }

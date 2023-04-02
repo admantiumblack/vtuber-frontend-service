@@ -29,9 +29,9 @@ export default function YouTubeVideoPicker({ videos, livestreamsOnly }) {
                     <Link
                       href={`https://youtube.com/channel/${currentVideo.channel.id}`}
                       target="_blank"
-                      className={styles.button}
                     >
                       <Image
+                        className={styles.button}
                         src={currentVideo.channel.photo}
                         height={"65"}
                         width={"65"}

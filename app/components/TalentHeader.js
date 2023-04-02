@@ -5,8 +5,11 @@ import useSWR from "swr";
 import Loading from "./loading";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function TalentHeader({ vtuberId }) {
+  const [talentReady, setTalentReady] = useState(false);
+
   const fetchTalent = async () => {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_USER_API}/user/list?vtuber_id=${vtuberId}`
@@ -15,7 +18,11 @@ export default function TalentHeader({ vtuberId }) {
     return data.data[0];
   };
 
-  const { data: talent, error: talentError } = useSWR("talent", fetchTalent);
+  const { data: talent, error: talentError } = useSWR("talent", fetchTalent, {
+    onSuccess: () => {
+      setTalentReady(true);
+    },
+  });
 
   // console.log(talent);
   // console.log(talent.details.banner);
@@ -24,13 +31,14 @@ export default function TalentHeader({ vtuberId }) {
       <div
         className={styles.headerBanner}
         style={{
-          backgroundImage: talent
-            ? `url("${talent.details.banner}=w1920-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj")`
-            : null,
+          backgroundImage:
+            talentReady && talent
+              ? `url("${talent.details.banner}=w1920-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj")`
+              : null,
         }}
       />
       <div className={styles.headerContainer}>
-        {talent ? (
+        {talentReady && talent ? (
           <>
             <Link
               href={`https://youtube.com/channel/${talent.details.id}`}
