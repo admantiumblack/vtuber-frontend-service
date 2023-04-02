@@ -5,11 +5,11 @@
   background-color: rgb(var(--accent-1-rgb));
   display: flex;
   padding: 5px 20px;
+  z-index: var(--layout-z-index);
 }
 
 .sidebar {
   --sidebar-width: 400px;
-  --sidebar-z-index: 90;
 
   position: fixed;
   display: flex;
@@ -21,11 +21,11 @@
   background-color: rgb(var(--background-alt-rgb));
   padding: 10px 10px 10px 20px;
   transition: 0.3s;
-  z-index: var(--sidebar-z-index);
+  z-index: var(--layout-z-index);
 }
 
 .sidebar * {
-  z-index: calc(var(--sidebar-z-index) + 1);
+  z-index: calc(var(--layout-z-index) + 1);
 }
 
 .sidebarOpen {

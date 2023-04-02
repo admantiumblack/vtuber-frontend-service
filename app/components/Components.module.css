@@ -345,3 +345,77 @@
   white-space: break-spaces;
   color: rgb(var(--accent-2-rgb));
 }
+
+/* =============== TALENT HEADER =============== */
+
+.headerContainer {
+  display: grid;
+  grid-template-columns: min-content auto;
+
+  background-color: rgb(var(--accent-1-rgb));
+  height: 200px;
+}
+
+.headerBanner {
+  position: absolute;
+  background-position: bottom;
+  height: 280px;
+  width: 100%;
+  left: 0;
+  top: 80px;
+  background-size: cover;
+  z-index: -1;
+}
+
+.headerContainer .button {
+  background-color: unset;
+  border-style: none;
+  box-shadow: none;
+
+  margin: 10px;
+}
+
+.headerContainer .button:hover {
+  border-style: none;
+  box-shadow: 5px 5px rgba(var(--accent-4-rgb));
+}
+
+.headerContainer .button:active {
+  box-shadow: 5px 5px rgba(var(--active-rgb));
+}
+
+.headerTextContainer {
+  margin: auto 0;
+  display: grid;
+  height: fit-content;
+  width: fit-content;
+  grid-template-rows: auto auto;
+  grid-template-columns: auto auto;
+}
+
+.headerTextContainer h1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.headerTextContainer h4 {
+  font-weight: normal;
+  margin: auto 0;
+}
+
+.companyPill {
+  width: fit-content;
+  height: fit-content;
+  padding: 4px 10px;
+  border-radius: 10px;
+  background-color: rgb(var(--accent-4-rgb));
+  text-transform: uppercase;
+}
+
+.companyPill:hover {
+  background-color: rgb(var(--accent-3-rgb));
+}
+
+.companyPill:active {
+  background-color: rgb(var(--accent-5-rgb));
+}

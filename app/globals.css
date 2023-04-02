@@ -3,12 +3,17 @@
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
+  --layout-z-index: 90;
+
   --topbar-height: 80px;
 
   --foreground-rgb: 255, 255, 252;
   --background-rgb: 7, 17, 8;
   --accent-1-rgb: 122, 40, 203;
   --accent-2-rgb: 229, 212, 237;
+  --accent-3-rgb: 157, 102, 212;
+  --accent-4-rgb: 98, 18, 176;
+  --accent-5-rgb: 71, 8, 133;
   --subtitle-rgb: 175, 175, 175;
 
   --foreground-alt-rgb: 232, 238, 242;
