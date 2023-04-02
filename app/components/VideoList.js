@@ -48,7 +48,7 @@ export default function VideoList({ listAll, vtuberId }) {
   const [videos, setVideos] = useState([]);
 
   const fetchAllVideos = async () => {
-    console.log("Fetching all videos");
+    // console.log("Fetching all videos");
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_VIDEO_API}/schedule/live`
     );
@@ -58,7 +58,7 @@ export default function VideoList({ listAll, vtuberId }) {
   };
 
   const fetchVideos = async () => {
-    console.log("Fetching talent specific videos");
+    // console.log("Fetching talent specific videos");
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_VIDEO_API}/video/list?channel_id=${vtuberId}&limit=5`
     );

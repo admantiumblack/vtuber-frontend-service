@@ -17,7 +17,7 @@ export default function TalentHeader({ vtuberId }) {
 
   const { data: talent, error: talentError } = useSWR("talent", fetchTalent);
 
-  console.log(talent);
+  // console.log(talent);
   // console.log(talent.details.banner);
   return (
     <>
