@@ -10,7 +10,6 @@ import Loading from "../loading";
 import Head from "next/head";
 
 export default function TalentHeader({ vtuberId }) {
-  TalentHeader.title = "talent";
   const [talentReady, setTalentReady] = useState(false);
 
   const fetchTalent = async () => {
