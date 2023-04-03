@@ -1,10 +1,16 @@
-import React, { Component } from "react";
-import styles from "";
-import { Carousel } from "react-responsive-carousel";
-import Loading from "../loading";
+import styles from "@/app/components/Components.module.css";
+import "./carouselStyles.css";
+
 import useSWR from "swr";
 
+import { Carousel } from "react-responsive-carousel";
+
+import Loading from "../loading";
+import { useState } from "react";
+
 export default function CarouselArtworks({ id }) {
+  const [artworkReady, setArtworkReady] = useState(false);
+
   const fetchArtworks = async () => {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_ART_API}/art?id=${id}&limit=10`
@@ -19,27 +25,32 @@ export default function CarouselArtworks({ id }) {
 
   const { data: artworks, error: artworkError } = useSWR(
     "artworks",
-    fetchArtworks
+    fetchArtworks,
+    {
+      onSuccess: () => {
+        setArtworkReady(true);
+      },
+    }
   );
 
   // console.log(artworks);
 
   return (
     <>
-      <Carousel>
-        {artworks ? (
-          artworks.post.map((item) => (
+      {artworkReady && artworks ? (
+        <Carousel autoPlay={true} stopOnHover={true}>
+          {artworks.post.map((artwork) => (
             <div>
               <img
-                src={item["file-url"][0]}
-                alt={item["tag-string-artist"][0]}
+                src={artwork["file-url"][0]}
+                alt={artwork["tag-string-artist"][0]}
               />
             </div>
-          ))
-        ) : (
-          <Loading />
-        )}
-      </Carousel>
+          ))}
+        </Carousel>
+      ) : (
+        <Loading />
+      )}
     </>
   );
 }

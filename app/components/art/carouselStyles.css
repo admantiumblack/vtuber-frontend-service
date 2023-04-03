@@ -1,0 +1,21 @@
+.carousel .slider-wrapper.axis-horizontal .slider {
+  align-items: center;
+  height: 500px;
+}
+
+.carousel .thumbs-wrapper {
+  display: none;
+  margin: 20px;
+  overflow: hidden;
+}
+
+.slider-wrapper.axis-horizontal img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+
+.slider-wrapper.axis-horizontal * {
+  height: inherit;
+}
