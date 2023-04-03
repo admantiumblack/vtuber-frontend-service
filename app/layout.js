@@ -5,12 +5,12 @@ import styles from "./Layout.module.css";
 
 import Image from "next/image";
 import { useState } from "react";
+import Link from "next/link";
 
 import logo from "@/public/logo.png";
 import menuIcon from "@/public/hamburger.svg";
 import xIcon from "@/public/x.svg";
-import CompanyList from "./components/CompanyList";
-import Link from "next/link";
+import CompanyList from "./components/talent/CompanyList";
 
 export default function RootLayout({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -25,6 +25,9 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
+      <head>
+        <title>Home - Vtuber Service</title>
+      </head>
       <body>
         <div className={styles.topbar}>
           <div className={styles.menuBar}>

@@ -1,10 +1,11 @@
-import styles from "./Components.module.css";
+import styles from "@/app/components/Components.module.css";
 
 import { useState } from "react";
 import YouTubePlayer from "./YouTubePlayer";
 import Image from "next/image";
-import Loading from "./loading";
 import Link from "next/link";
+
+import Loading from "../loading";
 
 export default function YouTubeVideoPicker({ videos, livestreamsOnly }) {
   const [currentVideo, setCurrentVideo] = useState(videos[0]);

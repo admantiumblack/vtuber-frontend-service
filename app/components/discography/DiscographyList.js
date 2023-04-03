@@ -1,16 +1,16 @@
-import styles from "./Components.module.css";
+import styles from "@/app/components/Components.module.css";
 
 import useSWR from "swr";
+
 import { Spotify } from "react-spotify-embed";
+import { useState } from "react";
 
 import AlbumList from "./AlbumList";
-import Loading from "./loading";
-import { useEffect, useState } from "react";
-import { Router } from "next/router";
+import Loading from "../loading";
 
 export default function DiscographyList({ vtuberId }) {
-  const [albumLink, setAlbumLink] = useState("");
   const [albumsReady, setAlbumsReady] = useState(false);
+  const [albumLink, setAlbumLink] = useState("");
 
   const fetchAlbums = async () => {
     const res = await fetch(
@@ -26,13 +26,6 @@ export default function DiscographyList({ vtuberId }) {
       // console.log(data.data.items[0].external_urls.spotify);
       setAlbumLink(data.data.items[0].external_urls.spotify);
     },
-  });
-
-  useEffect(() => {
-    Router.events.on("routeChangeStart", (url, { shallow }) => {
-      setAlbumsReady(false);
-      setAlbumLink("");
-    });
   });
 
   return (

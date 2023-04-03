@@ -1,7 +1,7 @@
-import styles from "./Components.module.css";
+import styles from "@/app/components/Components.module.css";
 
 import AlbumButton from "./AlbumButton";
-import Loading from "./loading";
+import Loading from "../loading";
 
 export default function AlbumList({ albums, setAlbumLink }) {
   return (
