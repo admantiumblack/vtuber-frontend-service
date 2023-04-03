@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 import Loading from "../loading";
+import Head from "next/head";
 
 export default function TalentHeader({ vtuberId }) {
   const [talentReady, setTalentReady] = useState(false);
@@ -41,6 +42,9 @@ export default function TalentHeader({ vtuberId }) {
       <div className={styles.headerContainer}>
         {talentReady && talent ? (
           <>
+            <Head>
+              <title>{talent.vtuber_name} - Vtuber Service</title>
+            </Head>
             <Link
               href={`https://youtube.com/channel/${talent.details.id}`}
               target="_blank"
