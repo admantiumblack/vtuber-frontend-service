@@ -388,6 +388,14 @@
 
   background-color: rgb(var(--accent-1-rgb));
   height: 200px;
+
+  transition: 0.2s;
+}
+
+.headerContainer:hover {
+  box-shadow: 5px 5px rgb(var(--accent-2-rgb));
+
+  transition: 0.2s;
 }
 
 .headerBanner {

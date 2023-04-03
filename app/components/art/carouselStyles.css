@@ -11,6 +11,10 @@
 }
 
 .slider-wrapper.axis-horizontal img {
+  background-color: rgb(var(--background-alt-rgb));
+}
+
+.slider-wrapper.axis-horizontal img {
   max-width: 100%;
   max-height: 100%;
   width: auto;
