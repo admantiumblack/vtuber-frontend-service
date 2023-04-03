@@ -1,4 +1,5 @@
-.carousel .slider-wrapper.axis-horizontal .slider {
+.carousel .slider-wrapper.axis-horizontal .slider *:has(img) {
+  display: flex;
   align-items: center;
   height: 500px;
 }

@@ -1,4 +1,5 @@
 import styles from "@/app/components/Components.module.css";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./carouselStyles.css";
 
 import useSWR from "swr";
@@ -38,7 +39,7 @@ export default function CarouselArtworks({ id }) {
   return (
     <>
       {artworkReady && artworks ? (
-        <Carousel autoPlay={true} stopOnHover={true}>
+        <Carousel infiniteLoop={true} stopOnHover={true}>
           {artworks.post.map((artwork) => (
             <div>
               <img
