@@ -5,7 +5,6 @@ import styles from "./Layout.module.css";
 
 import Image from "next/image";
 import { useState } from "react";
-import Link from "next/link";
 
 import logo from "@/public/logo.png";
 import menuIcon from "@/public/hamburger.svg";
@@ -26,14 +25,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <title>Home - Vtuber Service</title>
+        <title>Vtuber Service</title>
       </head>
       <body>
         <div className={styles.topbar}>
           <div className={styles.menuBar}>
-            <Link href="/">
+            <a href="/">
               <Image src={logo} width={185} height={70} alt={"Logo"} />
-            </Link>
+            </a>
             <div className={styles.menuIcon} onClick={openNav}>
               <Image src={menuIcon} width={40} height={40} />
             </div>
@@ -45,9 +44,9 @@ export default function RootLayout({ children }) {
           }
         >
           <div className={styles.menuBar}>
-            <Link href="/">
+            <a href="/">
               <Image src={logo} width={185} height={70} alt={"Logo"} />
-            </Link>
+            </a>
             <div className={styles.menuIcon} onClick={closeNav}>
               <Image src={xIcon} width={40} height={40} />
             </div>
