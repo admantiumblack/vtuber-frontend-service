@@ -1,9 +1,8 @@
-import styles from "./Components.module.css";
+import styles from "@/app/components/Components.module.css";
 
 import Image from "next/image";
-import Link from "next/link";
 
-export default function TalentButton({
+export default function AlbumButton({
   id,
   url,
   album,
@@ -13,7 +12,6 @@ export default function TalentButton({
 }) {
   return (
     <div className={styles.albumButtonContainer}>
-      {/* <Link href={`/talent/${id}`}> */}
       <li className={styles.button} onClick={() => setAlbumLink(url)}>
         <Image src={thumbnail} width="175" height="175" alt={album} />
       </li>

@@ -1,11 +1,12 @@
-import styles from "./Components.module.css";
+import styles from "@/app/components/Components.module.css";
 
 import useSWR from "swr";
+
 import { Spotify } from "react-spotify-embed";
+import { useState } from "react";
 
 import AlbumList from "./AlbumList";
-import Loading from "./loading";
-import { useState } from "react";
+import Loading from "../loading";
 
 export default function DiscographyList({ vtuberId }) {
   const [albumsReady, setAlbumsReady] = useState(false);

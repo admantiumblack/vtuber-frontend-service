@@ -9,7 +9,7 @@ import { useState } from "react";
 import logo from "@/public/logo.png";
 import menuIcon from "@/public/hamburger.svg";
 import xIcon from "@/public/x.svg";
-import CompanyList from "./components/CompanyList";
+import CompanyList from "./components/talent/CompanyList";
 import Link from "next/link";
 
 export default function RootLayout({ children }) {

@@ -1,8 +1,9 @@
 import useSWR from "swr";
 
 import YouTubeVideoPicker from "./YouTubeVideoPicker";
-import Loading from "./loading";
 import { useState } from "react";
+
+import Loading from "../loading";
 
 function prepareLiveVideos(videosRaw) {
   // const videos = videosRaw.data

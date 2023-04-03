@@ -1,9 +1,9 @@
-import styles from "./Components.module.css";
+import styles from "@/app/components/Components.module.css";
 
 import useSWR from "swr";
 
 import CompanyTalentList from "./CompanyTalentList";
-import Loading from "./loading";
+import Loading from "../loading";
 
 const fetchCompanies = async () => {
   // console.log(`${process.env.NEXT_PUBLIC_USER_API}/user/company?limit=0`);

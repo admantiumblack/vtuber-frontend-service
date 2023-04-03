@@ -1,11 +1,12 @@
-import styles from "./Components.module.css";
+import styles from "@/app/components/Components.module.css";
 
 import useSWR from "swr";
 
-import Loading from "./loading";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+
+import Loading from "../loading";
 
 export default function TalentHeader({ vtuberId }) {
   const [talentReady, setTalentReady] = useState(false);

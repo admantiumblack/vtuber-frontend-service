@@ -1,7 +1,7 @@
 "use client";
 
-import VideoList from "./components/VideoList";
-import CompanyList from "./components/CompanyList";
+import VideoList from "./components/video/VideoList";
+import CompanyList from "./components/talent/CompanyList";
 
 export default function Page() {
   return (

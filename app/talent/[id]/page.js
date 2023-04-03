@@ -1,10 +1,10 @@
 "use client";
 
 import styles from "./Talent.module.css";
-import CarouselArtworks from "../../components/Carousel";
-import DiscographyList from "@/app/components/DiscographyList";
-import TalentHeader from "@/app/components/TalentHeader";
-import VideoList from "@/app/components/VideoList";
+import CarouselArtworks from "@/app/components/art/Carousel";
+import DiscographyList from "@/app/components/discography/DiscographyList";
+import TalentHeader from "@/app/components/talent/TalentHeader";
+import VideoList from "@/app/components/video/VideoList";
 
 export default function Page({ params }) {
   return (

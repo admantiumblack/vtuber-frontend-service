@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import styles from "react-responsive-carousel/lib/styles/carousel.min.css";
+import styles from "";
 import { Carousel } from "react-responsive-carousel";
-import Loading from "./loading";
+import Loading from "../loading";
 import useSWR from "swr";
 
 export default function CarouselArtworks({ id }) {
@@ -25,7 +25,7 @@ export default function CarouselArtworks({ id }) {
   // console.log(artworks);
 
   return (
-    <div>
+    <>
       <Carousel>
         {artworks ? (
           artworks.post.map((item) => (
@@ -40,6 +40,6 @@ export default function CarouselArtworks({ id }) {
           <Loading />
         )}
       </Carousel>
-    </div>
+    </>
   );
 }

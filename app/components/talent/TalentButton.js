@@ -1,4 +1,4 @@
-import styles from "./Components.module.css";
+import styles from "@/app/components/Components.module.css";
 import Image from "next/image";
 import Link from "next/link";
 

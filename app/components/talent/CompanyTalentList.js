@@ -1,5 +1,3 @@
-import styles from "./Components.module.css";
-
 import useSWR from "swr";
 
 import TalentList from "./TalentList";
